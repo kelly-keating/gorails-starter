@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   
   # route, controller, nickname (used in views/partials/_navbar )
   get "/about-us", to: "about#index", as: "about"
+
+  get "/sign-up", to: "registrations#new"
+  post "/sign-up", to: "registrations#create"
 end
