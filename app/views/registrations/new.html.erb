@@ -1,6 +1,14 @@
 <h1>Sign up</h1>
 
 <%= form_with model: @user, url: "sign-up" do |form| %>
+  <% if @user.errors.any? %>
+    <div class="alert alert-danger">
+      <% @user.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
+
   <div class="mb-3">
     <%= form.label :email %>
     <%= form.text_field :email, class: "form-control", placeholder: "cool-kid-94@me.com" %>
