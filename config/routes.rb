@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   # root to: "main#index"
   root "main#index"
   
-  get "/about", to: "about#index"
+  # route, controller, nickname (used in views/partials/_navbar )
+  get "/about-us", to: "about#index", as: "about"
 end
