@@ -10,14 +10,14 @@
           <li class="nav-item">
             <%= link_to "About", about_path, class: "nav-link" %>
           </li>
-          <% unless @user && @user.id %>
+          <% unless Current.user %>
           <li class="nav-item">
             <%= link_to "Sign In", sign_in_path, class: "nav-link" %>
           </li>
           <% end %>
         </ul>
       </div>
-      <% if @user && @user.id %>
+      <% if Current.user %>
         <%= button_to "Log out", logout_path, method: :delete %>
       <% end %>
     </div>
