@@ -3,8 +3,10 @@ class RegistrationsController < ApplicationController
     @user = User.new
   end
 
+  # TODO: if user already logged in, redirect to home
   def create
     @user = User.new(user_params)
+    # TODO: unique email should matter - here or will model care?
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_path, notice: "Successfully created account"

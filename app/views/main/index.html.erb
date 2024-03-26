@@ -2,7 +2,9 @@
   <h1>Welcome to scheduled tweets</h1>
   <div>
     <% if @user %>
-    <p>Logged in as <%= @user.email %></p>
+      <p>Logged in as <%= @user.email %></p>
+    <% else %>
+      <%= link_to "Sign in", sign_in_path %>
     <% end %>
   </div>
 </div>
