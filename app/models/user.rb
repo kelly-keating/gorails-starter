@@ -18,4 +18,8 @@ class User < ApplicationRecord
 
   validates :email, presence: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: "must be a valid email" }
   # validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: 'invalid email address provided' }
+  validates :password, presence: true, length: {minimum: 6, maximum: 30}
+  
+
+  attr_accessor :current_password, :new_password, :new_password_confirmation  	# virtual attributes, not used in db
 end

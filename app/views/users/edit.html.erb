@@ -1,0 +1,28 @@
+<h1>Sign up</h1>
+
+<%= form_with model: Current.user, url: account_path, method: :patch do |form| %>
+  <% if Current.user.errors.any? %>
+    <div class="alert alert-danger">
+      <% Current.user.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :current_password %>
+    <%= form.password_field :current_password, class: "form-control", placeholder: "Current Password"%>
+  </div>
+  <div class="mb-3">
+    <%= form.label :new_password %>
+    <%= form.password_field :new_password, class: "form-control", placeholder: "New Password"%>
+  </div>
+  <div class="mb-3">
+    <%= form.label :new_password_confirmation %>
+    <%= form.password_field :new_password_confirmation, class: "form-control", placeholder: "New Password"%>
+  </div>
+  
+  <div>
+    <%= form.submit "Update password", class: "btn btn-primary" %>
+  </div>
+<% end %>

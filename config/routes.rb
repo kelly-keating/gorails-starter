@@ -10,9 +10,11 @@ Rails.application.routes.draw do
 
   get "/sign-up", to: "registrations#new", as: "register"
   post "/sign-up", to: "registrations#create"
-
   get "/sign-in", to: "sessions#new"
   post "/sign-in", to: "sessions#create"
-
   delete "/logout", to: "sessions#destroy"
+
+  get "/account", to: "users#index"
+  get "/account/edit", to: "users#edit"
+  patch "/account", to: "users#update"
 end
