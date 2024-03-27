@@ -8,8 +8,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    if Current.user.authenticate(params[:user][:current_password])
-      new_pwds = { password: params[:user][:new_password], password_confirmation: params[:user][:new_password_confirmation] }
+    if Current.user.authenticate(password_params[:current_password])
+      new_pwds = { password: password_params[:new_password], password_confirmation: password_params[:new_password_confirmation] }
       if Current.user.update(new_pwds)
         flash[:notice] = "Password updated"
         redirect_to account_path
@@ -22,9 +22,9 @@ class UsersController < ApplicationController
     end
   end
 
-  # private
+  private
 
-  # def password_params
-  #   params.require(:user).permit(:current_password, :new_password, :new_password_confirmation)
-  # end
+  def password_params
+    params.require(:user).permit(:current_password, :new_password, :new_password_confirmation)
+  end
 end
