@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   post "/sign-in", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
+  get "/password/forgot", to: "password_resets#new"
+  post "/password/forgot", to: "password_resets#create"
+  get "/password/reset", to: "password_resets#edit"
+  patch "/password/reset", to: "password_resets#update"
+
   get "/account", to: "users#index"
   get "/account/edit", to: "users#edit"
   patch "/account", to: "users#update"

@@ -1,0 +1,7 @@
+<h1>Password Reset</h1>
+
+<p>Someone requested a reset of your password for Scheduled Tweets TM.</p>
+
+<p>If this was you, click the following link to reset your password. The link will expire automatically in 15 minutes.</p>
+
+<%= link_to "Reset Password", password_reset_url(token: @token) %>
